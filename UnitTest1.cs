@@ -1,5 +1,4 @@
 using OpenQA.Selenium.Chrome;
-using NUnit.Framework;
 using OpenQA.Selenium;
 
 namespace Selenium_test_Grigorevska
