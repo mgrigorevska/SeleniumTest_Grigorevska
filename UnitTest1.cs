@@ -23,7 +23,7 @@ namespace Selenium_test_Grigorevska
 
             // ввести пароль
             var password = driver.FindElement(By.Name("Password"));
-            password.SendKeys("h0wXyTE5!1");
+            password.SendKeys("***");
             Thread.Sleep(1000);
 
             // нажать кнопку Войти
