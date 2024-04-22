@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hhQK75M/Kx6IiS5kjFGntUyTRtoL9fECDOCHKrPCdbNpuQXCWQRa/1Y7JauZpdMw5wsZfEHoeHxT/cxXIHYovw==",
+  "dgSpecHash": "9TuLgPayeaygEjfLzVXev+f25ot14TZ42LKPnywvhjBdmkJAfobPudM4JFo/FLWIe0aXGUO8A29xCKM2KTzMaw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jepka\\Documents\\testing\\SeleniumTest_Grigorevska\\AutoTestHomework\\AutoTestHomework.csproj",
   "expectedPackageFiles": [
@@ -17,7 +17,7 @@
     "C:\\Users\\Jepka\\.nuget\\packages\\nunit\\3.13.3\\nunit.3.13.3.nupkg.sha512",
     "C:\\Users\\Jepka\\.nuget\\packages\\nunit.analyzers\\3.6.1\\nunit.analyzers.3.6.1.nupkg.sha512",
     "C:\\Users\\Jepka\\.nuget\\packages\\nunit3testadapter\\4.4.2\\nunit3testadapter.4.4.2.nupkg.sha512",
-    "C:\\Users\\Jepka\\.nuget\\packages\\selenium.webdriver\\4.0.0-beta2\\selenium.webdriver.4.0.0-beta2.nupkg.sha512",
+    "C:\\Users\\Jepka\\.nuget\\packages\\selenium.webdriver\\4.19.0\\selenium.webdriver.4.19.0.nupkg.sha512",
     "C:\\Users\\Jepka\\.nuget\\packages\\seleniumextras.waithelpers\\1.0.2\\seleniumextras.waithelpers.1.0.2.nupkg.sha512",
     "C:\\Users\\Jepka\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.0\\system.configuration.configurationmanager.4.4.0.nupkg.sha512",
     "C:\\Users\\Jepka\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512",
