@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9TuLgPayeaygEjfLzVXev+f25ot14TZ42LKPnywvhjBdmkJAfobPudM4JFo/FLWIe0aXGUO8A29xCKM2KTzMaw==",
+  "dgSpecHash": "VaDbIxQu0POSwi/QKVa0PrgZB0lf53skHxOsRZr5/0S/414gjSHrTsNe9ZvF1HDRcuRz0Zu3A/78d9sGtf0B8Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jepka\\Documents\\testing\\SeleniumTest_Grigorevska\\AutoTestHomework\\AutoTestHomework.csproj",
+  "projectFilePath": "C:\\Users\\Jepka\\Documents\\testing\\SeleniumTest_Grigorevska\\AutoTestHomework.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jepka\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
     "C:\\Users\\Jepka\\.nuget\\packages\\fluentassertions\\6.12.0\\fluentassertions.6.12.0.nupkg.sha512",

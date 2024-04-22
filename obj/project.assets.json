@@ -1192,11 +1192,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jepka\\Documents\\testing\\SeleniumTest_Grigorevska\\AutoTestHomework\\AutoTestHomework.csproj",
+      "projectUniqueName": "C:\\Users\\Jepka\\Documents\\testing\\SeleniumTest_Grigorevska\\AutoTestHomework.csproj",
       "projectName": "AutoTestHomework",
-      "projectPath": "C:\\Users\\Jepka\\Documents\\testing\\SeleniumTest_Grigorevska\\AutoTestHomework\\AutoTestHomework.csproj",
+      "projectPath": "C:\\Users\\Jepka\\Documents\\testing\\SeleniumTest_Grigorevska\\AutoTestHomework.csproj",
       "packagesPath": "C:\\Users\\Jepka\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jepka\\Documents\\testing\\SeleniumTest_Grigorevska\\AutoTestHomework\\obj\\",
+      "outputPath": "C:\\Users\\Jepka\\Documents\\testing\\SeleniumTest_Grigorevska\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Jepka\\AppData\\Roaming\\NuGet\\NuGet.Config"
