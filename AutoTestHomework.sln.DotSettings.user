@@ -1,6 +1,16 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=16d53867_002D7139_002D4f3d_002Da2ed_002D58d463d6fbc7/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Authorization" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::D50B4C16-70F0-4E8E-A62E-284381EC3578::net7.0::AutoTestHomework.Tests.Authorization&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::D50B4C16-70F0-4E8E-A62E-284381EC3578::net7.0::AutoTestHomework.Tests.CommunityButtonTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::D50B4C16-70F0-4E8E-A62E-284381EC3578::net7.0::AutoTestHomework.Tests.Community2&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::D50B4C16-70F0-4E8E-A62E-284381EC3578::net7.0::AutoTestHomework.Tests.SidebarExitIcon&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::D50B4C16-70F0-4E8E-A62E-284381EC3578::net7.0::AutoTestHomework.Tests.CommunityPopUp&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::D50B4C16-70F0-4E8E-A62E-284381EC3578::net7.0::AutoTestHomework.Tests.Test&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::D50B4C16-70F0-4E8E-A62E-284381EC3578::net7.0::AutoTestHomework.Tests.EmptySearchImg&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::D50B4C16-70F0-4E8E-A62E-284381EC3578::net7.0::AutoTestHomework.Tests.AuthorizationUrlMatch&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::D50B4C16-70F0-4E8E-A62E-284381EC3578::net7.0::AutoTestHomework.Tests.CommunityTitle&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::D50B4C16-70F0-4E8E-A62E-284381EC3578::net7.0::AutoTestHomework.Tests.LogoutText&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::D50B4C16-70F0-4E8E-A62E-284381EC3578::net7.0::AutoTestHomework.Tests.Test1&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::D50B4C16-70F0-4E8E-A62E-284381EC3578::net7.0::AutoTestHomework.Tests.ProfileDate&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
