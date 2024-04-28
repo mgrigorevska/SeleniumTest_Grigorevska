@@ -1,4 +1,3 @@
-using FluentAssertions;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -35,11 +34,13 @@ public class Tests
         var sidebar = driver.FindElement(By.CssSelector("[data-tid='SidebarMenuButton']"));
         sidebar.Click();
         
-        // кликаем на кнопку "Выйти"
+        // ждем пока появится кнопка "Выйти" и кликаем  
+        wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("[data-tid='LogoutButton']")));
         var logout = driver.FindElement(By.CssSelector("[data-tid='LogoutButton']"));
         logout.Click();
         
-        // ждем пока появится нужный элемент
+        // ждем пока появится нужный урл
+        wait.Until(ExpectedConditions.UrlContains("Logout"));
         
         // берем текст со страницы
         var logoutText = driver.FindElement(By.ClassName("body-wrapper")).Text;
@@ -64,16 +65,19 @@ public class Tests
 
         // проверяем соответствие текста заголовка
         var communityTitle = driver.FindElement(By.CssSelector("[data-tid='Title']"));
-        //Console.WriteLine(communityTitle.Text);
+        
         Assert.That(communityTitle.Text == "Сообщества",
             "CURRENT TEXT: " + communityTitle.Text + "\nEXPECTED: Сообщества");
     }
 
+    
     [Test]
     // проверяем, меняется ли текст после после выбора в фильтре "Я участник". Тест упадет, тк строка на стаффе содержит пробел
     public void CommunityPopUpText()
     {
+        // завезем переменную под образец текста
         const string sampleText = "Я участник";
+        
         // переходим на стр Сообщества
         driver.Navigate().GoToUrl("https://staff-testing.testkontur.ru/communities");
         
