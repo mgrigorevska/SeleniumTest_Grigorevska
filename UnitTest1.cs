@@ -105,7 +105,15 @@ public class Tests
     // проверка отображения картинки с котом в разделе файлы при пустом поле поиска
     public void EmptySearchImg()
     {
-       driver.Navigate().GoToUrl("https://staff-testing.testkontur.ru/files");
+       // кликаем на боковое меню
+       var sidebar = driver.FindElement(By.CssSelector("[data-tid='SidebarMenuButton']"));
+       sidebar.Click();
+       
+       // кликаем на кнопку "Файлы"
+       var community = driver.FindElements(By.CssSelector("[data-tid='Files']"))
+           .First(element => element.Displayed);
+       community.Click();
+
        // кликаем на иконку поиска
        var search = driver.FindElement(By.CssSelector("[data-tid='Search']"));
        search.Click();
@@ -113,7 +121,6 @@ public class Tests
        // проверяем наличие картинки с котом
        var emptySearch = driver.FindElement(By.CssSelector("[data-tid='ModalPageBody']"));
        var image = emptySearch.FindElement(By.TagName("svg"));
-       
        Assert.That(image.Displayed, Is.True, "No cat image displayed");
        
     }
