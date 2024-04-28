@@ -103,7 +103,7 @@ public class Tests
     
     [Test]
     // проверка отображения картинки с котом в разделе файлы при пустом поле поиска
-    public void EmptySearchImg()
+    public void FilesEmptySearchImg()
     {
        // кликаем на боковое меню
        var sidebar = driver.FindElement(By.CssSelector("[data-tid='SidebarMenuButton']"));
