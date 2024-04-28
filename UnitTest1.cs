@@ -9,6 +9,7 @@ namespace AutoTestHomework;
 public class Tests
 {
     public ChromeDriver driver;
+    public WebDriverWait wait;
     
     [SetUp]
     public void Setup()
@@ -21,9 +22,13 @@ public class Tests
         driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         
         Authorization();
+        
+        wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+        wait.Until(ExpectedConditions.UrlContains("https://staff-testing.testkontur.ru/news"));
     }
-
+    
     [Test]
+    // проверка соответсвия текста на странице выхода из аккаунта
     public void LogoutText()
     {
         // кликаем на боковое меню
@@ -39,7 +44,7 @@ public class Tests
         // берем текст со страницы
         var logoutText = driver.FindElement(By.ClassName("body-wrapper")).Text;
         
-        // Проверяем соответствие текста
+        // Проверяем соответствие текста 
         Assert.That(logoutText.Contains("Вы вышли из учетной записи") & logoutText.Contains("Вернуться в Кадровый Портал"),
             "CURRENT TEXT: " + logoutText + "\nEXPECTED: Вы вышли из учетной записи\nВернуться в Кадровый Портал");
     }
@@ -59,58 +64,41 @@ public class Tests
 
         // проверяем соответствие текста заголовка
         var communityTitle = driver.FindElement(By.CssSelector("[data-tid='Title']"));
+        //Console.WriteLine(communityTitle.Text);
         Assert.That(communityTitle.Text == "Сообщества",
             "CURRENT TEXT: " + communityTitle.Text + "\nEXPECTED: Сообщества");
     }
 
     [Test]
-
-    public void CommunityPopUp()
+    // проверяем, меняется ли текст после после выбора в фильтре "Я участник". Тест упадет, тк строка на стаффе содержит пробел
+    public void CommunityPopUpText()
     {
-       // driver.Navigate().GoToUrl("https://staff-testing.testkontur.ru/communities");
-       // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+        const string sampleText = "Я участник";
+        // переходим на стр Сообщества
+        driver.Navigate().GoToUrl("https://staff-testing.testkontur.ru/communities");
+        
+        // ждем появления заголовка
+        wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("[data-tid='Title']")));
        
-        var sidebar = driver.FindElement(By.CssSelector("[data-tid='SidebarMenuButton']"));
-        sidebar.Click();
-        
-        var community = driver.FindElements(By.CssSelector("[data-tid='Community']"))
-            .First(element => element.Displayed);
-        community.Click();
-        
-        //Thread.Sleep(500);
-        // ждем появления элемента
-        
-        
         // кликаем на выпадающий список
         var popUpMenu = driver.FindElements(By.CssSelector("[data-tid='PopupMenu__caption']"))
             .First(element => element.Displayed);
-        
         popUpMenu.Click();
         
-        Thread.Sleep(500);
-        var menuItem = driver.FindElement(By.CssSelector("[href*='isMember']"));              //("[href='https://staff-testing.testkontur.ru/communities?activeTab=isMember']"));               //.CssSelector("[data-tid='PopupContentInner']"));
-            //.First(element => element.Displayed);
-        //Console.WriteLine(menuItem);    
+        // ждем пока нужный элемент в списке станет доступным и кликаем
+        wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("[data-tid='PopupContent']")));
+        var menuItem = driver.FindElement(By.CssSelector("[href*='isMember']"));
         menuItem.Click();
-        //Console.WriteLine(menuItem.Text);
         
-        Thread.Sleep(1000);
+        // проверяем соответствие текста
+        Assert.That(popUpMenu.Text == sampleText, "CURRENT TEXT: " + popUpMenu.Text + ", TEXT LEN: " + popUpMenu.Text.Length 
+                                                  + "\nEXPECTED: " + sampleText + ", TEXT LEN: " + sampleText.Length);
         
-        // проверяем соотвествие текста элемента
-        var communityMember = driver.FindElement(By.CssSelector("[data-tid='PopupMenu__caption']"));
-        
-        
-        Console.WriteLine(communityMember.Text);
-       // Assert.That(communityMember.Text.Contains("Я участник"));
-       //     "CURRENT TEXT: " + communityMember.Text + "\nEXPECTED: Я участник");
-        
-        
-        Thread.Sleep(1000);
     }
 
     
     [Test]
-
+    // проверка отображения картинки с котом в разделе файлы при пустом поле поиска
     public void EmptySearchImg()
     {
        // кликаем на боковое меню
@@ -134,50 +122,56 @@ public class Tests
     }
 
     [Test]
-
-    public void Test1()
+    // проверка поиска мероприятия по названию
+    public void EventSearch()
     {
+        const string Query = "Два стула";  // заведем переменную под запрос
         
+        //  находим и кликаем иконку поиска
         var searchIcon = driver.FindElement(By.CssSelector("[data-tid='Services']"));
-        Thread.Sleep(3000);
         searchIcon.Click();
         
-        Thread.Sleep(3000);
-        
+        // кликаем на сроку поиска
         var searchBar = driver.FindElement(By.CssSelector("[data-tid='SearchBar']"));
-        
         searchBar.Click();
-        Thread.Sleep(3000);
-
-        searchBar.SendKeys("  0000");
-
-        //var search = driver.FindElement(By.CssSelector("[data-tid='InputLikeText__input']"));
-        //var search = driver.FindElement(By.CssSelector("[class='react-ui-1uzh48y']"));
-        //search.SendKeys("fer");
-        Thread.Sleep(3000);
         
+        // вводим в строку запрос
+        var search = driver.FindElement(By.CssSelector("[data-tid='SearchBar'] input"));
+        search.SendKeys(Query);
+
+        // дожидаемся появления результатов поиска и кликаем
+        wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("[data-tid='ComboBoxMenu__item']")));
+        var searchResult = driver.FindElement(By.CssSelector("[data-tid='ComboBoxMenu__item']"));
+        searchResult.Click();
+        
+        // проверяем, содержит ли заголовок мероприятия искомую строку
+        var EventTitle = driver.FindElement(By.CssSelector("[data-tid='Title']")).Text;
+        Assert.That(EventTitle.Contains(Query), "Название мероприятия не содержит строку запроса.\nИскомая строка - " + Query);
+       
     }
 
     [Test]
-
+    // проверка соответсвия текста заголовка в профиле и отображения календаря 
     public void ProfileDate()
     {
         // кликаем на боковое меню
         var sidebar = driver.FindElement(By.CssSelector("[data-tid='SidebarMenuButton']"));
         sidebar.Click();
-        //Thread.Sleep(3000);
         
-        var ava = driver.FindElements(By.CssSelector("[data-tid='Avatar']")).Last();
-        ava.Click();
+        var avatar = driver.FindElements(By.CssSelector("[data-tid='Avatar']")).Last();
+        avatar.Click();
         
-       Thread.Sleep(1000); //подождем пока прогрузится профиль
-       
+        //подождем пока прогрузится профиль
+        wait.Until(ExpectedConditions.UrlContains("https://staff-testing.testkontur.ru/profile"));
         
-        var date = driver.FindElement(By.CssSelector("[data-tid='CalendarChoose']"));
-        date.Click();
+        // кликаем на "Выбрать дату"
+        var chooseDate = driver.FindElement(By.CssSelector("[data-tid='CalendarChoose']"));
+        chooseDate.Click();
+        
         var profileTitle = driver.FindElement(By.CssSelector("[data-tid='Item']")).Text;
         var calendar = driver.FindElement(By.CssSelector("[data-tid='Calendar']")).Displayed;
         
+        // проверяем соответсвие текста и отображение календаря
         Assert.Multiple(() =>
         {
             Assert.That(profileTitle == "Профиль",
@@ -185,14 +179,11 @@ public class Tests
             Assert.That(calendar, Is.True, "calendar is not displayed");
         });
         
-        
-        //Thread.Sleep(3000);
     }
 
 
     public void Authorization()
     {
-        
         var login = driver.FindElement(By.Id("Username"));
         login.SendKeys("mgliezz@gmail.com");
         
