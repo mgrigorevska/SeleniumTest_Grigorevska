@@ -129,7 +129,8 @@ public class Tests
     // проверка поиска мероприятия по названию
     public void EventSearch()
     {
-        const string Query = "Два стула";  // заведем переменную под запрос
+        // заведем переменную под запрос
+        const string Query = "Два стула"; 
         
         //  находим и кликаем иконку поиска
         var searchIcon = driver.FindElement(By.CssSelector("[data-tid='Services']"));
