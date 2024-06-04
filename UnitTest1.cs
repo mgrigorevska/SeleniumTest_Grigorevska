@@ -193,7 +193,7 @@ public class Tests
         login.SendKeys("mgliezz@gmail.com");
         
         var password = driver.FindElement(By.Name("Password"));
-        password.SendKeys("h0wXyTE5!1");
+        password.SendKeys("***");
         
         var button = driver.FindElement(By.Name("button"));
         button.Click();
